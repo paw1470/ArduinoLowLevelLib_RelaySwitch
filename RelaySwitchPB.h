@@ -3,7 +3,7 @@
 #include <inttypes.h>
 
 //NOConnection true when device is connected to NO
-//invertedOutput true when led connected to pin 13 != led on relay switch, true if ==
+//invertedOutput true when led connected to pin 13 != led on relay switch, false if ==
 class RelaySwitch{
     public:
         RelaySwitch();
