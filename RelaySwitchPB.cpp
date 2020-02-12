@@ -1,22 +1,22 @@
 #include "RelaySwitchPB.h"
 #include "Arduino.h"
 
-RelaySwitch::RelaySwitch(){
+RelaySwitchPB::RelaySwitchPB(){
     this->stateON = false;
 }
 
-void RelaySwitch::turnON(){
+void RelaySwitchPB::turnON(){
     this->stateON = true;
     setState(true);
 }
 
-void RelaySwitch::turnOFF(){
+void RelaySwitchPB::turnOFF(){
     stateON = false;
     setState(false);
 }
 
 
-void RelaySwitch::setState(bool on){
+void RelaySwitchPB::setState(bool on){
     if(on != invertedOutput){
         digitalWrite(relayPin, HIGH);
     } else{
@@ -24,21 +24,21 @@ void RelaySwitch::setState(bool on){
     }
 }
 
-bool RelaySwitch::isStateOn(){
+bool RelaySwitchPB::isStateOn(){
     return stateON;
 }
 
-void RelaySwitch::invertInterpreter(bool NOConnection, bool invertedOutput){
+void RelaySwitchPB::invertInterpreter(bool NOConnection, bool invertedOutput){
     this->invertedOutput = !NOConnection != invertedOutput;
 }
 
-void RelaySwitch::test(){
+void RelaySwitchPB::test(){
     turnON();
     delay(1000);
     turnOFF();
 }
 
-void RelaySwitch::init(uint8_t relayPin, bool NOConnection, bool invertedOutput){
+void RelaySwitchPB::init(uint8_t relayPin, bool NOConnection, bool invertedOutput){
     this->relayPin = relayPin;
     invertInterpreter(NOConnection, invertedOutput);
     pinMode(relayPin, OUTPUT);

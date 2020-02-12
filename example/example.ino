@@ -3,7 +3,7 @@
 #define RELAY_SWITCH_PIN 13
 #define BUTTON_PIN 2
 
-RelaySwitch relaySwitch;
+RelaySwitchPB relaySwitch;
 
 void setup(){
     pinMode(BUTTON_PIN, INPUT_PULLUP);
