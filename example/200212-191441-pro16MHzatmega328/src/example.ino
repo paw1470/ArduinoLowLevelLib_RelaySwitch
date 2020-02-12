@@ -14,10 +14,14 @@ void setup(){
 }
 
 void loop(){
-    if(digitalRead(BUTTON_PIN)){
+    if(isButtonPressed()){
         relaySwitch.turnON();
     } else{
         relaySwitch.turnOFF();
     };
     delay(100);
+}
+
+bool isButtonPressed(){
+    return !digitalRead(BUTTON_PIN);
 }
